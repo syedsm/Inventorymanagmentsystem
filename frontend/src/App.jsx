@@ -34,7 +34,6 @@ import Contact from "./User/Homepage/Contact";
 import About from "./User/Homepage/About";
 import Cart from "./Cart";
 import ProductDetail from "./User/Homepage/Productdetail";
-import Buy from "./User/Homepage/Buy";
 import Paymentsuccess from "./Paymentsuccess";
 import Paymentfailure from "./Paymentfailure";
 import Paymentform from "./Paymentform";
@@ -181,7 +180,6 @@ const [OrderType,setOrderType]=useState(localStorage.getItem("OrderType"))
                 element={<Paymentform />}
               />
               <Route path="/myorder" element={<MyOrder />} />
-              <Route path="/buy" element={<Buy />} />
               <Route path="/myprofile" element={<Profile />} />
               <Route path="*" element={<Navigate to="/home" />} />
             </Routes>
@@ -216,7 +214,6 @@ const [OrderType,setOrderType]=useState(localStorage.getItem("OrderType"))
             <Route path="/productpage/:id" element={<ProductDetail />} />
             <Route path="/myorder" element={<MyOrder />} />
             <Route path="/myprofile" element={<Profile />} />
-            <Route path="/buy" element={<Buy />} />
             <Route path="*" element={<Navigate to="/" />} />
           </Routes>
           {!isAuthPage && <UserFooter />}
