@@ -21,7 +21,7 @@ function Buypage() {
     }
     // console.log("buyitem",buyitem);
     axios
-      .post("/api/user/cartproducts", { ids: Object.keys(buyitem.item) })
+      .post("https://inventorymanagmentsystembackend.onrender.com/user/cartproducts", { ids: Object.keys(buyitem.item) })
       .then((res) => {
         // console.log("res", res);
         if (res.status === 200) {

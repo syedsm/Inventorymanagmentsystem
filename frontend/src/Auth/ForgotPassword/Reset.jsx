@@ -20,7 +20,7 @@ function Reset() {
     try {
       // setLoading(true);
 
-      const res = await axios.post("/api/auth/resetpage", data);
+      const res = await axios.post("https://inventorymanagmentsystembackend.onrender.com/auth/resetpage", data);
 
       console.log(res);
       if (res.status === 200 && res.data.message) {

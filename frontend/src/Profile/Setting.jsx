@@ -78,7 +78,7 @@ function Setting() {
 
     try {
       const token = localStorage.getItem("authToken");
-      const res = await axios.put("/api/user/update", uploadData, {
+      const res = await axios.put("https://inventorymanagmentsystembackend.onrender.com/user/update", uploadData, {
         headers: {
           "Content-Type": "multipart/form-data",
           Authorization: `Bearer ${token}`,
@@ -116,7 +116,7 @@ function Setting() {
 
         const loginemail = localStorage.getItem("loginemail");
         const token = localStorage.getItem("authToken");
-        const res = await axios.get(`/api/user/userfetch/${loginemail}`, {
+        const res = await axios.get(`https://inventorymanagmentsystembackend.onrender.com/user/userfetch/${loginemail}`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },

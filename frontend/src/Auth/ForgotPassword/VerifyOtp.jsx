@@ -45,7 +45,7 @@ function Activation() {
     //   return toast.error("Please enter a 4-digit OTP.");
     // }
     try {
-      const response = await axios.post("/api/auth/forgot_verify_otp", {
+      const response = await axios.post("https://inventorymanagmentsystembackend.onrender.com/auth/forgot_verify_otp", {
         otp: otp,
         email: tempmail,
       });
@@ -68,7 +68,7 @@ function Activation() {
     if (!isResendEnabled) return;
 
     try {
-      const response = await axios.post("/api/auth/forgot_resend_otp", {
+      const response = await axios.post("https://inventorymanagmentsystembackend.onrender.com/auth/forgot_resend_otp", {
         email: tempmail,
       });
       toast.success(response.data.message || "OTP resent successfully!");

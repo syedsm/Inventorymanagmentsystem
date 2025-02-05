@@ -44,7 +44,7 @@ function SupplierRegistration() {
     }
 
     try {
-      const res = await axios.post("/api/auth/supplierregactivation", formData);
+      const res = await axios.post("https://inventorymanagmentsystembackend.onrender.com/auth/supplierregactivation", formData);
       console.log("data", res);
       // console.log(res.data.tempdata);
       if (res.status === 200) {
