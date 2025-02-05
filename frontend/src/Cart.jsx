@@ -104,7 +104,7 @@ function Cart() {
   const onApproveOrder = async (data) => {
     try {
       if (!data?.orderID) throw new Error("Invalid Order ID");
-      console.log("Order Id ", data.orderID); // The orderId from PayPal approval callback
+      // console.log("Order Id ", data.orderID); // The orderId from PayPal approval callback
 
       const paymentId = data.orderID; // PayPal sends orderID after approval
 
@@ -113,7 +113,7 @@ function Cart() {
         `http://localhost:5000/paypal/capturepayment/${paymentId}`
       );
 
-      console.log("Payment Successful:", response.data);
+      // console.log("Payment Successful:", response.data);
       alert("Payment Successful");
       navigate("/success"); // Navigate to the success page
     } catch (error) {
