@@ -43,7 +43,7 @@ import Buypage from "./User/Homepage/buypage";
 
 function App() {
   const location = useLocation();
-const [OrderType,setOrderType]=useState(localStorage.getItem("OrderType"))
+  const [OrderType, setOrderType] = useState(localStorage.getItem("OrderType"));
   const [cart, setCart] = useState(() => {
     const storedCartitem = JSON.parse(localStorage.getItem("cart"));
     return storedCartitem || [];
@@ -120,7 +120,8 @@ const [OrderType,setOrderType]=useState(localStorage.getItem("OrderType"))
   return (
     <Contextapi.Provider
       value={{
-        OrderType,setOrderType,
+        OrderType,
+        setOrderType,
         login,
         setLogin,
         loginemail,
