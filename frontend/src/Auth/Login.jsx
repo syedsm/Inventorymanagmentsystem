@@ -1,7 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useContext, useEffect, useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
-import { auth } from "../Auth/Firebaseauth"; 
+import { auth } from "../Auth/Firebaseauth";
 // import { signInWithPopup, getAuth, GoogleAuthProvider } from "firebase/auth";
 import axios from "axios";
 import { Contextapi } from "../contexts/Authcontext";
@@ -34,7 +34,10 @@ function Login() {
     const data = { email, password };
 
     try {
-      const res = await axios.post("/api/auth/login", data);
+      const res = await axios.post(
+        "https://inventorymanagmentsystembackend.onrender.com/auth/login",
+        data
+      );
       console.log("data recived", res);
       const decodedTokendata = decodeToken(res.data.token);
       console.log("Decoded token:", decodedTokendata);
@@ -72,17 +75,15 @@ function Login() {
       // console.log("data recived", user);
 
       // Call the backend API with the Google access token
-      const res = await axios.post("/api/auth/Googlelogin", {
-        data: { accessToken: user.accessToken },
-      });
+      const res = await axios.post(
+        "https://inventorymanagmentsystembackend.onrender.com/auth/Googlelogin",
+        {
+          data: { accessToken: user.accessToken },
+        }
+      );
 
       // // console.log("data recived",res);
 
-      // // if (res.data.conflict) {
-      // //   toast.error(res.data.message); // Show conflict toast if user exists
-      // //   return;
-      // // }
-      // // If successful login (status 200 or 201)
       if (res.status === 200 || res.status === 201) {
         const decodedTokendata = decodeToken(res.data.token);
         // console.log("res", decodedTokendata);
@@ -91,7 +92,7 @@ function Login() {
         localStorage.setItem("loginemail", decodedTokendata.email);
         setUserRole(localStorage.setItem("userRole", decodedTokendata.role));
         setloginemail(decodedTokendata.email);
-        
+
         // setloginpopup("true");
         // localStorage.setItem("showLoginPopup", "true");
         setLogin(res.data.token);
@@ -115,9 +116,12 @@ function Login() {
       const accessToken = result.user.accessToken;
 
       // Call the backend API with the Facebook access token
-      const res = await axios.post("/api/auth/FBlogin", {
-        data: { accessToken },
-      });
+      const res = await axios.post(
+        "https://inventorymanagmentsystembackend.onrender.com/auth/FBlogin",
+        {
+          data: { accessToken },
+        }
+      );
 
       if (res.data.conflict) {
         toast.error(res.data.message); // Show conflict toast if user exists
@@ -261,8 +265,6 @@ function Login() {
                   </div>
                 </form>
 
-             
-
                 {/* Google login button */}
                 <div className="d-flex justify-content-center mt-3">
                   <button className="btn btn-white" onClick={handleGoogleLogin}>
@@ -288,7 +290,7 @@ function Login() {
                     Login with Facebook
                   </button>
                 </div>
-               
+
                 <div className="text-center mt-3">
                   Don’t have an account?{" "}
                   <Link to="/signup" className="signup-link">
