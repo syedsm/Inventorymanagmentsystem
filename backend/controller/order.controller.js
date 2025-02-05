@@ -4,7 +4,7 @@ const Product = require('../models/Product.model');
 // const User = require('../models/User.model');
 
 const Saveorder = async (req, res) => {
-    console.log("Order data received:", req.body);
+    // console.log("Order data received:", req.body);
 
     try {
         const decoded = jwt.decode(req.body.userId, process.env.JWT_SECRET);
@@ -58,7 +58,7 @@ const Saveorder = async (req, res) => {
 
         // // Save the new order to the database
         await newOrder.save();
-        console.log("Order saved successfully:", newOrder);
+        // console.log("Order saved successfully:", newOrder);
 
         // Send a success response with the saved order data
         res.status(201).json({

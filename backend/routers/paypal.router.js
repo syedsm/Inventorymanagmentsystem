@@ -237,7 +237,7 @@ require('dotenv').config();
 // Function to get PayPal access token
 const getAccessToken = async () => {
   try {
-    console.log('Attempting to get PayPal access token...');
+    // console.log('Attempting to get PayPal access token...');
     const params = new URLSearchParams({ grant_type: 'client_credentials' });
 
     const response = await axios.post(
@@ -252,7 +252,7 @@ const getAccessToken = async () => {
       }
     );
 
-    console.log('Access token received.');
+    // console.log('Access token received.');
     return response.data.access_token;
   } catch (error) {
     console.error('Error fetching PayPal access token:', error.message);
@@ -263,7 +263,7 @@ const getAccessToken = async () => {
 // Function to create PayPal order
 const createOrder = async (req, res) => {
   const { totalAmount, description } = req.body;
-  console.log("data recived", req.body);
+  // console.log("data recived", req.body);
   try {
     const accessToken = await getAccessToken();
     const orderResponse = await axios.post(
@@ -311,11 +311,11 @@ const createOrder = async (req, res) => {
 // Function to capture payment
 const capturePayment = async (req, res) => {
   const { token, payerId } = req.params;
-  console.log("parmas", req.params);
+  // console.log("parmas", req.params);
 
   try {
     const accessToken = await getAccessToken();  // Get PayPal access token
-    console.log('Access token fetched:', accessToken);
+    // console.log('Access token fetched:', accessToken);
 
     // Check if the order has already been captured
     const captureResponse = await axios.get(
@@ -328,7 +328,7 @@ const capturePayment = async (req, res) => {
       }
     );
 
-    console.log('Capture response from PayPal:', captureResponse.data);
+    // console.log('Capture response from PayPal:', captureResponse.data);
 
     // If status is already 'COMPLETED', payment is already captured
     if (captureResponse.data.status === 'COMPLETED') {
@@ -351,7 +351,7 @@ const capturePayment = async (req, res) => {
         }
       );
 
-      console.log('Capture payment response from PayPal:', capturePaymentResponse.data);
+      // console.log('Capture payment response from PayPal:', capturePaymentResponse.data);
 
       if (capturePaymentResponse.data.status === 'COMPLETED') {
         return res.status(200).json({

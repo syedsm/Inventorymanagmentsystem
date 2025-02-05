@@ -118,9 +118,9 @@ const singleproductupdate = async (req, res) => {
         const productData = req.body;
         const files = req.files;
 
-        console.log("Product ID:", productId);
-        console.log("Data received:", productData);
-        console.log("Images received:", files);
+        // console.log("Product ID:", productId);
+        // console.log("Data received:", productData);
+        // console.log("Images received:", files);
 
         // Prepare update object
         const updateData = { ...productData };
@@ -130,7 +130,7 @@ const singleproductupdate = async (req, res) => {
             updateData.Images = files.map(file => file.filename);
         }
 
-        console.log("Updated Data:", updateData);
+        // console.log("Updated Data:", updateData);
 
         // Find the product by ID and update
         const updatedProduct = await Product.findByIdAndUpdate(

@@ -58,7 +58,7 @@ const getUsers = async (req, res) => {
 };
 
 const companyapprove = async (req, res) => {
-    console.log("approve", req.params.id)
+    // console.log("approve", req.params.id)
     try {
 
         const status = await UserModel.findOneAndUpdate({ _id: req.params.id }, { isActive: "true" }, { new: true });
@@ -75,7 +75,7 @@ const companyapprove = async (req, res) => {
 }
 
 const companysuspend = async (req, res) => {
-    console.log("suspend", req.params.id);
+    // console.log("suspend", req.params.id);
     try {
         const status = await UserModel.findOneAndUpdate({ _id: req.params.id }, { isActive: "false" }, { new: true });
         const { isActive } = status
@@ -90,7 +90,7 @@ const companysuspend = async (req, res) => {
 }
 
 const supplierreject = async (req, res) => {
-    console.log("Rejected", req.params.id);
+    // console.log("Rejected", req.params.id);
     try {
         const id = await UserModel.findByIdAndDelete(req.params.id);
         res.status(200).json({

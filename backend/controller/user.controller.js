@@ -27,8 +27,8 @@ const fetchuser = async (req, res) => {
 
 const userupdate = async (req, res) => {
     try {
-        console.log('Request Body:', req.body);
-        console.log('Uploaded File:', req.file);
+        // console.log('Request Body:', req.body);
+        // console.log('Uploaded File:', req.file);
 
         // Extract user ID from the request body
         const id = req.body.userid;
@@ -68,7 +68,7 @@ const userupdate = async (req, res) => {
             },
             { new: true } // Return the updated document
         );
-        console.log("update", updatedUser);
+        // console.log("update", updatedUser);
         res.status(200).json({
             message: 'User updated successfully',
             apiData: updatedUser,
@@ -128,11 +128,11 @@ const productfetch = async (req, res) => {
 };
 
 const cartproducts = async (req, res) => {
-    console.log(req.body)
+    // console.log(req.body)
     try {
         const { ids } = req.body
         const record = await ProductModel.find({ _id: { $in: ids } })
-        console.log(record)
+        // console.log(record)
         res.json({
             status: 200,
             apiData: record,
@@ -161,7 +161,7 @@ const singleproductfetch = async (req, res) => {
 
 const userbuy = async (req, res) => {
     try {
-        console.log(req.body);
+        // console.log(req.body);
         const { ids } = req.body
         const record = await ProductModel.findOne({ _id: ids });
         // console.log("found record", record);
