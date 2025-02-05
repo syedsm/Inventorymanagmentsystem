@@ -73,7 +73,7 @@ function AddProduct() {
 
   const handleCategoryChange = (e) => {
     const selectedCategory = e.target.value;
-    console.log("selectedCategory", selectedCategory);
+    // console.log("selectedCategory", selectedCategory);
     setFormData((prev) => ({ ...prev, category: selectedCategory }));
     // setShowImageUpload(!!value); // Show image upload if category is selected
 

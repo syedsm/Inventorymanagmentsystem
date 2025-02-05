@@ -7,29 +7,36 @@ import {
   useLocation,
 } from "react-router-dom";
 import { Contextapi } from "./contexts/Authcontext";
-import Adminheader from "./Adminheader";
-import Sidebar from "./Sidebar";
+import "react-toastify/dist/ReactToastify.css";
+
+// auth routes
 import Login from "./Auth/Login";
 import Signup from "./Auth/Signup";
-import Dashboard from "./Dashboard";
-import AddProduct from "./Product/AddProduct";
-import Productlist from "./Product/Productlist";
-import Activation from "./Auth/Activation";
-import Reset from "./Auth/ForgotPassword/Reset";
 import VerifyOtp from "./Auth/ForgotPassword/VerifyOtp";
+import Activation from "./Auth/Activation";
 import Passwordreset from "./Auth/ForgotPassword/Passwordreset";
+import Supplieractivation from "./Auth/Supplieractivation";
+
+
+
+
+
+import Adminheader from "./Adminheader";
+import Sidebar from "./Sidebar";
+import Dashboard from "./Dashboard";
+import AddProduct from "./Product/Addproduct";
+import Productlist from "./Product/Productlist";
+import Reset from "./Auth/ForgotPassword/Reset";
 import Setting from "./Profile/Setting";
 import Productupdate from "./Product/Productupdate";
 import Editproduct from "./Product/Editproduct";
 import HomePage from "./User/Homepage/Homepage";
 import Supplier from "./Auth/Supplier";
-import Supplieractivation from "./Auth/Supplieractivation";
 import ManageUsers from "./Manageusers";
 import Staff from "./Auth/Staffreg";
 import Staffactivation from "./Auth/Staffactivation";
 import Userheader from "./User/Homepage/Userheader";
 import UserFooter from "./User/Homepage/UserFooter";
-import "react-toastify/dist/ReactToastify.css";
 import Contact from "./User/Homepage/Contact";
 import About from "./User/Homepage/About";
 import Cart from "./Cart";
