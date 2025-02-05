@@ -2,54 +2,14 @@
 logs
 *.log
 npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-pnpm-debug.log*
-lerna-debug.log*
 
 # Dependency directories
 node_modules/
-vendor/
 
-# Build directories
-dist/
-build/
-tmp/
-temp/
+
 
 # Environment variables
 .env
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
 
-# Editor directories and files
-.vscode/
-!.vscode/extensions.json
-.idea/
-.DS_Store
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-*.sw?
 
-# OS generated files
-Thumbs.db
-ehthumbs.db
-Desktop.ini
-$RECYCLE.BIN/
 
-# IDE specific files
-*.iml
-*.ipr
-*.iws
-
-# Miscellaneous
-*.bak
-*.tmp
-*.log
-*.pid
-*.seed
-*.pid.lock
