@@ -41,7 +41,7 @@ const Dashboard = () => {
     // Fetch total stock and total customers from the backend
     const fetchData = async () => {
       try {
-        const response = await axios.get("/api/admin/admin-dashboard", {
+        const response = await axios.get("https://inventorymanagmentsystembackend.onrender.com/api/admin/admin-dashboard", {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("authToken")}`,
           },

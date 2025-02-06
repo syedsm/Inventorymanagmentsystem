@@ -12,7 +12,7 @@ function ProductDetail() {
 
   useEffect(() => {
     axios
-      .get(`/api/user/singleproductfetch/${id}`)
+      .get(`https://inventorymanagmentsystembackend.onrender.com/api/user/singleproductfetch/${id}`)
       .then((response) => {
         setProduct(response.data);
         const mainImage = response.data.Images;

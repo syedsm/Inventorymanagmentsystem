@@ -36,7 +36,7 @@ function Staffactivation() {
     }
 
     try {
-      const response = await axios.post("/api/auth/staff_verify_otp", {
+      const response = await axios.post("https://inventorymanagmentsystembackend.onrender.com/api/auth/staff_verify_otp", {
         otp,
         email: tempmail,
       });

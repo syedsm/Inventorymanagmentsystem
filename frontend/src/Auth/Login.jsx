@@ -35,7 +35,7 @@ function Login() {
 
     try {
       const res = await axios.post(
-        "/api/auth/login",
+        "https://inventorymanagmentsystembackend.onrender.com/api/auth/login",
         data
       );
       console.log("data recived", res);
@@ -117,7 +117,7 @@ function Login() {
 
       // Call the backend API with the Facebook access token
       const res = await axios.post(
-        "/api/auth/FBlogin",
+        "https://inventorymanagmentsystembackend.onrender.com/api/auth/FBlogin",
         {
           data: { accessToken },
         }

@@ -15,7 +15,7 @@ const Productupdate = () => {
     const fetchData = async () => {
       try {
         const token = localStorage.getItem("authToken");
-        const response = await axios.get("/api/product/fetchproduct", {
+        const response = await axios.get("https://inventorymanagmentsystembackend.onrender.com/api/product/fetchproduct", {
           headers: { Authorization: `Bearer ${token}` },
         });
         console.log(response.data.data);
@@ -54,7 +54,7 @@ const Productupdate = () => {
     }
     const token = localStorage.getItem("authToken");
     axios
-      .delete(`/api/product/deleteproduct/${productId}`, {
+      .delete(`https://inventorymanagmentsystembackend.onrender.com/api/product/deleteproduct/${productId}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

@@ -19,7 +19,7 @@ function Editproduct() {
   useEffect(() => {
     const token = localStorage.getItem("authToken");
     axios
-      .get(`/api/product/singleproductfetch/${id}`, {
+      .get(`https://inventorymanagmentsystembackend.onrender.com/api/product/singleproductfetch/${id}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -155,7 +155,7 @@ function Editproduct() {
 
     const token = localStorage.getItem("authToken");
     axios
-      .put(`/api/product/singleproductupdate/${id}`, updatedform, {
+      .put(`https://inventorymanagmentsystembackend.onrender.com/api/product/singleproductupdate/${id}`, updatedform, {
         headers: {
           "Content-Type": "multipart/form-data",
           Authorization: `Bearer ${token}`,

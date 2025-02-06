@@ -23,7 +23,7 @@ function ManageUsers() {
       const query = roleFilter ? `role=${roleFilter}` : "";
 
       // Make API request
-      const response = await axios.get(`/api/admin/allusers?${query}`, {
+      const response = await axios.get(`https://inventorymanagmentsystembackend.onrender.com/api/admin/allusers?${query}`, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("authToken") || ""}`,
         },
@@ -67,7 +67,7 @@ function ManageUsers() {
     try {
       const token = localStorage.getItem("authToken");
 
-      const response = await axios.get(`/api/admin/approve/${userId}`, {
+      const response = await axios.get(`https://inventorymanagmentsystembackend.onrender.com/api/admin/approve/${userId}`, {
         headers: { Authorization: `Bearer ${token}` }, // Authorization header
       });
 
@@ -91,7 +91,7 @@ function ManageUsers() {
   const handlesupsend = async (userId) => {
     try {
       axios
-        .get(`/api/admin/suspend/${userId}`, {
+        .get(`https://inventorymanagmentsystembackend.onrender.com/api/admin/suspend/${userId}`, {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("authToken")}`,
           },
@@ -112,7 +112,7 @@ function ManageUsers() {
   const handlereject = (userId) => {
     try {
       axios
-        .delete(`/api/admin/reject/${userId}`, {
+        .delete(`https://inventorymanagmentsystembackend.onrender.com/api/admin/reject/${userId}`, {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("authToken")}`,
           },

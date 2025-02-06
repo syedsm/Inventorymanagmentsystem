@@ -13,7 +13,7 @@ const Productlist = () => {
     const fetchData = async () => {
       try {
         const token = localStorage.getItem("authToken");
-        const response = await axios.get("/api/product/fetchproduct", {
+        const response = await axios.get("https://inventorymanagmentsystembackend.onrender.com/api/product/fetchproduct", {
           headers: { Authorization: `Bearer ${token}` },
         });
         console.log(response.data.data);

@@ -36,7 +36,7 @@ function Activation() {
     }
 
     try {
-      const response = await axios.post("/api/auth/verify_otp", {
+      const response = await axios.post("https://inventorymanagmentsystembackend.onrender.com/api/auth/verify_otp", {
         otp,
         email: tempmail,
       });
@@ -59,7 +59,7 @@ function Activation() {
     if (!isResendEnabled) return;
 
     try {
-      const response = await axios.post("/api/auth/resend_otp", {
+      const response = await axios.post("https://inventorymanagmentsystembackend.onrender.com/api/auth/resend_otp", {
         email: tempmail,
       });
       toast.success(response.data.message || "OTP resent successfully!");

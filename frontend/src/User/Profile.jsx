@@ -7,7 +7,7 @@ function Profile() {
   useEffect(() => {
     const fetchUserData = async () => {
       try {
-        const response = await axios.get("/api/user/profile", {
+        const response = await axios.get("https://inventorymanagmentsystembackend.onrender.com/api/user/profile", {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("authToken")}`,
           },

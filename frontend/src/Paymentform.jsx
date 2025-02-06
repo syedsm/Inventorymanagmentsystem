@@ -47,7 +47,7 @@ const Paymentform = () => {
   // Function to create the order on the backend
   const onCreateOrder = async () => {
     try {
-      const response = await axios.post("/api/paypal/createOrder", {
+      const response = await axios.post("https://inventorymanagmentsystembackend.onrender.com/api/paypal/createOrder", {
         totalAmount: totalAmount,
         description: "Payment for items in cart",
       });
@@ -76,7 +76,7 @@ const Paymentform = () => {
 
       // Call the backend to capture the payment
       const response = await axios.get(
-        `/api/paypal/capturepayment/${paymentId}`
+        `https://inventorymanagmentsystembackend.onrender.com/api/paypal/capturepayment/${paymentId}`
       );
       console.log("Payment Successful:", response.data);
       alert("Payment Successful");
