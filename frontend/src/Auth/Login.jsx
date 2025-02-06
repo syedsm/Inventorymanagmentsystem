@@ -76,7 +76,7 @@ function Login() {
 
       // Call the backend API with the Google access token
       const res = await axios.post(
-        "/api/auth/Googlelogin",
+        'https://inventorymanagmentsystembackend.onrender.com/api/auth/Googlelogin',
         {
           data: { accessToken: user.accessToken },
         }
