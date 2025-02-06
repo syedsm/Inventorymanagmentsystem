@@ -22,7 +22,7 @@ function Signup() {
     const data = { email, password };
 
     try {
-      const res = await axios.post("https://inventorymanagmentsystembackend.onrender.com/auth/sendotp", data);
+      const res = await axios.post("/api/auth/sendotp", data);
       // console.log(res.data.tempdata);
       if (res.status === 200) {
         localStorage.setItem("tempdata", res.data.tempdata);

@@ -36,7 +36,7 @@ function Supplieractivation() {
     }
 
     try {
-      const response = await axios.post("https://inventorymanagmentsystembackend.onrender.com/auth/supplier_verify_otp", {
+      const response = await axios.post("/api/auth/supplier_verify_otp", {
         otp,
         email: tempmail,
       });
@@ -59,7 +59,7 @@ function Supplieractivation() {
     if (!isResendEnabled) return;
 
     try {
-      const response = await axios.post("https://inventorymanagmentsystembackend.onrender.com/auth/resend_otp", {
+      const response = await axios.post("/api/auth/resend_otp", {
         email: tempmail,
       });
       toast.success(response.data.message || "OTP resent successfully!");

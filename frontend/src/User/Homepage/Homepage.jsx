@@ -13,7 +13,7 @@ const HomePage = () => {
   // Fetch products on component mount
   useEffect(() => {
     axios
-      .get("https://inventorymanagmentsystembackend.onrender.com/user/homepage")
+      .get("/api/user/homepage")
       .then((res) => {
         // console.log("Data Received", res.data);
         setProducts(res.data.products);

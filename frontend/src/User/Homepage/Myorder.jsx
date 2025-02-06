@@ -10,7 +10,7 @@ function MyOrder() {
   useEffect(() => {
     const fetchOrders = async () => {
       try {
-        const response = await axios.get("https://inventorymanagmentsystembackend.onrender.com/order/userorder/", {
+        const response = await axios.get("/api/order/userorder/", {
           headers: {
             Authorization: `Bearer ${login}`,
           },

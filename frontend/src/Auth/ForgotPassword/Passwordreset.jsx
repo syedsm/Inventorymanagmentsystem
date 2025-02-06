@@ -38,7 +38,7 @@ function Passwordreset() {
     // const data = { newpassword };
 
     try {
-      const res = await axios.post("https://inventorymanagmentsystembackend.onrender.com/auth/reset-password", {
+      const res = await axios.post("/api/auth/reset-password", {
         newpassword: newpassword,
         email: tempmail,
       }); 

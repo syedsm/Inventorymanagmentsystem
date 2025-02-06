@@ -28,12 +28,12 @@ const Paymentsuccess = () => {
     const fetchPaymentDetails = async () => {
       try {
         // Fetch the PayPal access token from your backend
-        const tokenResponse = await axios.get("https://inventorymanagmentsystembackend.onrender.com/paypal/accessToken");
+        const tokenResponse = await axios.get("/api/paypal/accessToken");
         const accessToken = tokenResponse.data.accessToken;
 
         // Now use this token to make the API call to PayPal
         const response = await axios.get(
-          `https:/https://inventorymanagmentsystembackend.onrender.com.sandbox.paypal.com/v2/checkout/orders/${token}`,
+          `https://api.sandbox.paypal.com/v2/checkout/orders/${token}`,
           {
             headers: {
               Authorization: `Bearer ${accessToken}`, // Use the valid access token from your backend
@@ -139,7 +139,7 @@ const Paymentsuccess = () => {
             // console.log("Order data to save:", data);
 
             // Send the order data to the server
-            const response = await axios.post("https://inventorymanagmentsystembackend.onrender.com/order/saveorder", data);
+            const response = await axios.post("/api/order/saveorder", data);
             if (response.status === 201) {
               // Successfully saved the order, clear cart and session data
               localStorage.removeItem("cart");
@@ -191,7 +191,7 @@ const Paymentsuccess = () => {
             console.log("Buy item data to save:", data);
 
             // Send the buy item order data to the server
-            const response = await axios.post("https://inventorymanagmentsystembackend.onrender.com/order/saveorder", data);
+            const response = await axios.post("/api/order/saveorder", data);
             if (response.status === 201) {
               // Successfully saved the order, clear buyitem and session data
               localStorage.removeItem("buyitem");

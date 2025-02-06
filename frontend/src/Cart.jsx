@@ -20,7 +20,7 @@ function Cart() {
       return;
     }
     axios
-      .post("https://inventorymanagmentsystembackend.onrender.com/user/cartproducts", { ids: Object.keys(cart.item) })
+      .post("/api/user/cartproducts", { ids: Object.keys(cart.item) })
       .then((res) => {
         console.log("res", res);
         if (res.status === 200) {
