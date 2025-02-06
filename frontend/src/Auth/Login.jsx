@@ -72,7 +72,7 @@ function Login() {
     try {
       const result = await signInWithPopup(auth, new GoogleAuthProvider());
       const user = result.user;
-      // console.log("data recived", user);
+      console.log("data recived", user);
 
       // Call the backend API with the Google access token
       const res = await axios.post(

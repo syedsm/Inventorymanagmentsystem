@@ -15,14 +15,17 @@ function Contact() {
       <div className="hero-section-contact position-relative">
         <div
           className="container-fluid hero-overlay-contact"
-          style={{ paddingTop: "100px" }}
+          style={{ paddingTop: "120px" }}
         >
-          <h1 className="display-3  text-white mb-5" data-aos="fade-up">
+          <h1
+            className="display-3 text-white mb-5 text-center"
+            data-aos="fade-up"
+          >
             Contact Us
           </h1>
-          <div className="row mt-4 justify-content-center ">
+          <div className="row justify-content-center">
             <div
-              className="col-md-4 mb-4"
+              className="col-12 col-md-4 mb-4 contact-office"
               data-aos="fade-right"
               data-aos-delay="200"
             >
@@ -33,7 +36,7 @@ function Contact() {
               <p>Phone: (123) 456-7890</p>
             </div>
             <div
-              className="col-md-4 mb-4 "
+              className="col-12 col-md-4 mb-4 contact-form"
               data-aos="fade-left"
               data-aos-delay="200"
             >
