@@ -37,7 +37,9 @@ const db = async () => {
 };
 
 db()
-
+app.use("/check",(req,res)=>{
+    res.send("Working API");
+})
 app.use('/api/paypal', Paypal)
 app.use('/api/order', OrderRouter)
 app.use('/api/user', UserRouter)
