@@ -35,7 +35,7 @@ function Login() {
 
     try {
       const res = await axios.post(
-        "/api/auth/login",
+        "https://inventorymanagmentsystembackend.onrender.com/api/auth/login",
         data
       );
       console.log("data recived", res);
