@@ -38,9 +38,9 @@ function Login() {
         "https://inventorymanagmentsystembackend.onrender.com/api/auth/login",
         data
       );
-      console.log("data recived", res);
+      // console.log("data recived", res);
       const decodedTokendata = decodeToken(res.data.token);
-      console.log("Decoded token:", decodedTokendata);
+      // console.log("Decoded token:", decodedTokendata);
       localStorage.setItem("loginemail", decodedTokendata.email);
       localStorage.setItem("authToken", decodedTokendata.token);
       localStorage.setItem("userRole", decodedTokendata.role);
@@ -82,7 +82,7 @@ function Login() {
         }
       );
 
-      // // console.log("data recived",res);
+      // console.log("data recived",res);
 
       if (res.status === 200 || res.status === 201) {
         const decodedTokendata = decodeToken(res.data.token);
