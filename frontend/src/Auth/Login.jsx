@@ -72,7 +72,7 @@ function Login() {
     try {
       const result = await signInWithPopup(auth, new GoogleAuthProvider());
       const user = result.user;
-      // console.log("data recived", user);
+      console.log("data recived", user);
 
       // Call the backend API with the Google access token
       const res = await axios.post(
@@ -82,7 +82,7 @@ function Login() {
         }
       );
 
-      // // console.log("data recived",res);
+      console.log("data recived",res);
 
       if (res.status === 200 || res.status === 201) {
         const decodedTokendata = decodeToken(res.data.token);
