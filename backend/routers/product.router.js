@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const upload = require("../utils/multer");
+const {upload} = require("../utils/multer");
 const {
     fetchproduct,
     addProduct,

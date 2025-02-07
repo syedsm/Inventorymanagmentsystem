@@ -14,6 +14,7 @@ const Productlist = () => {
       try {
         const token = localStorage.getItem("authToken");
         const response = await axios.get("https://inventorymanagmentsystembackend.onrender.com/api/product/fetchproduct", {
+        // const response = await axios.get("/api/product/fetchproduct", {
           headers: { Authorization: `Bearer ${token}` },
         });
         console.log(response.data.data);
@@ -134,19 +135,35 @@ const Productlist = () => {
                   </td>
                 )}
                 <td>
-                  {product.Images && product.Images.length > 0 && (
-                    <img
-                      src={`${product.Images[0]}`}
-                      alt={`Product`}
-                      style={{
-                        width: "50px",
-                        height: "50px",
-                        objectFit: "cover",
-                        marginRight: "5px",
-                        borderRadius: "5px",
-                        border: "1px solid #ddd",
-                      }}
-                    />
+                  {Array.isArray(product.Images) &&
+                  product.Images.length > 0 ? (
+                    product.Images.map((imgUrl, index) => (
+                      <div
+                        key={index}
+                        style={{ display: "inline-block", marginRight: "10px" }}
+                      >
+                        <a
+                          href={imgUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <img
+                            src={imgUrl} // ✅ Directly using image URL
+                            alt={`Product ${index + 1}`}
+                            style={{
+                              width: "50px",
+                              height: "50px",
+                              objectFit: "cover",
+                              borderRadius: "5px",
+                              border: "1px solid #ddd",
+                              cursor: "pointer",
+                            }}
+                          />
+                        </a>
+                      </div>
+                    ))
+                  ) : (
+                    <span>No Image</span>
                   )}
                 </td>
 

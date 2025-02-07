@@ -1,5 +1,5 @@
 const router = require('express').Router()
-const upload = require('../utils/multer')
+const {upload} = require('../utils/multer')
 const { fetchuser, userupdate, productfetch, cartproducts, singleproductfetch, userbuy, profile } = require('../controller/user.controller')
 
 

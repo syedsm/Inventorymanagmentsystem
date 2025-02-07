@@ -184,6 +184,7 @@ function AddProduct() {
         const token = localStorage.getItem("authToken");
         const res = await axios.post(
           "https://inventorymanagmentsystembackend.onrender.com/api/product/addproduct",
+          // "/api/product/addproduct",
           formDataToSend,
           {
             headers: {

@@ -1,8 +1,14 @@
 const Product = require("../models/Product.model");
+const { uploadMultipleFilesToVercel } = require("../utils/uploadBlob");
 
 const addProduct = async (req, res) => {
     // console.log(req.body);
+
     try {
+        // Upload files to Vercel Blob and get URLs
+        const uploadedFiles = await uploadMultipleFilesToVercel(req.files);
+        // console.log("Uploaded Files:", uploadedFiles); // Debugging
+
         const {
             category,
             ProductName,
@@ -19,11 +25,13 @@ const addProduct = async (req, res) => {
         if (!ProductName) {
             return res.status(400).json({ error: 'Product name is required' });
         }
+
         // Check for duplicate product name
         const existingProduct = await Product.findOne({ Productname: ProductName });
         if (existingProduct) {
             return res.status(400).json({ error: 'Product name already exists' });
         }
+
         // Construct the product data dynamically based on category
         const productData = {
             Productname: ProductName,
@@ -33,7 +41,7 @@ const addProduct = async (req, res) => {
             Stockstatus: Status,
             Quantity: Quantity,
             Brand: Brand,
-            Images: req.files ? req.files.map(file => file.filename) : [],
+            Images: uploadedFiles.map(file => file.url), // ✅ Store URLs instead of filenames
         };
 
         // Add category-specific fields
@@ -69,6 +77,7 @@ const addProduct = async (req, res) => {
         res.status(500).json({ error: 'Internal server error', details: error.message });
     }
 };
+
 
 const fetchproduct = async (req, res) => {
     try {
@@ -117,7 +126,8 @@ const singleproductupdate = async (req, res) => {
         const productId = req.params.id;
         const productData = req.body;
         const files = req.files;
-
+        const uploadedFiles = await uploadMultipleFilesToVercel(req.files);
+        console.log("Uploaded Files:", uploadedFiles);
         // console.log("Product ID:", productId);
         // console.log("Data received:", productData);
         // console.log("Images received:", files);

@@ -2,7 +2,7 @@ const UserModel = require("../models/User.model")
 const ProductModel = require('../models/Product.model')
 const User = require('../models/User.model')
 const jwt = require('jsonwebtoken')
-
+const {uploadMultipleFilesToVercel} =require('../utils/uploadBlob')
 const fetchuser = async (req, res) => {
     const loginEmail = req.params.loginemail;
     // console.log("Login Email:", loginEmail);
@@ -31,6 +31,9 @@ const userupdate = async (req, res) => {
         // console.log('Uploaded File:', req.file);
 
         // Extract user ID from the request body
+
+        const uploadedFiles = await uploadMultipleFilesToVercel(req.files);
+        console.log("Uploaded Files:", uploadedFiles);
         const id = req.body.userid;
         if (!id) {
             return res.status(400).json({ message: 'User ID is required' });
