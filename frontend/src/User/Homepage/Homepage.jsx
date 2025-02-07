@@ -242,7 +242,7 @@ const HomePage = () => {
                           <div className="card border-0 rounded">
                             <Link to={`/productpage/${product._id}`}>
                               <img
-                                src={product.Images}
+                                src={`./${product.Images}`}
                                 className="card-img-top"
                                 alt={product.name}
                                 style={{ height: "250px", objectFit: "cover" }}
