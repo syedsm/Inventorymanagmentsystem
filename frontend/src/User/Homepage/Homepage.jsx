@@ -10,18 +10,21 @@ const HomePage = () => {
   const [error, setError] = useState(null);
   const { cart, setCart, setbuyitem } = useContext(Contextapi);
   const navigate = useNavigate();
+
   // Fetch products on component mount
   useEffect(() => {
     axios
       .get("https://inventorymanagmentsystembackend.onrender.com/api/user/homepage")
       .then((res) => {
-        // console.log("Data Received", res.data);
-        setProducts(res.data.products);
+        if (res.data.products.length === 0) {
+          // Handle case when no products are available
+          setError("No products available.");
+        } else {
+          setProducts(res.data.products);
+        }
         setLoading(false);
       })
       .catch((err) => {
-        console.error("Error fetching data", err);
-        setError("There was an error loading the products.");
         setLoading(false);
       });
   }, []);
@@ -31,10 +34,6 @@ const HomePage = () => {
     return <div>Loading...</div>;
   }
 
-  // Error handling
-  if (error) {
-    return <div>{error}</div>;
-  }
 
   // Function to chunk the products into groups of 4
   const chunkProducts = (arr, size) => {
@@ -226,7 +225,7 @@ const HomePage = () => {
               {/* Dynamically render carousel items */}
               {productChunks.length === 0 ? (
                 <div className="carousel-item active">
-                  <p>No products available.</p>
+                  <h1>No products available in this time .</h1>
                 </div>
               ) : (
                 productChunks.map((chunk, index) => (
@@ -289,7 +288,8 @@ const HomePage = () => {
           </div>
         </section>
       </div>
-      {/* create a card flip section according to category wise  */}
+
+      {/* Create a card flip section according to category wise */}
       <h2 className="text-center mb-4">Shop by Category</h2>
       <FlipCardSection />
     </>
