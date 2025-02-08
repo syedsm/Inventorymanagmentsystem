@@ -193,6 +193,7 @@ function AddProduct() {
             },
           }
         );
+        console.log("res",res)
 
         if (res.status === 201) {
           toast.success("Product added successfully!");
