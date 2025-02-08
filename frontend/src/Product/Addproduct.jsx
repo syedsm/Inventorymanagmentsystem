@@ -182,6 +182,7 @@ function AddProduct() {
         });
 
         const token = localStorage.getItem("authToken");
+        console.log("token",token);
         const res = await axios.post(
           "https://inventorymanagmentsystembackend.onrender.com/api/product/addproduct",
           // "/api/product/addproduct",
