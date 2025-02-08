@@ -240,6 +240,7 @@ const HomePage = () => {
                           {/* Using _id as a unique key */}
                           <div className="card border-0 rounded">
                             <Link to={`/productpage/${product._id}`}>
+                              <h1>{product.Images}</h1>
                               <img
                                 src={`./${product.Images}`}
                                 className="card-img-top"
