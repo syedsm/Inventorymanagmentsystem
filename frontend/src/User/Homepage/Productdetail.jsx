@@ -87,7 +87,7 @@ function ProductDetail() {
                 <img
                   src={
                     currentMainImg[0]
-                      ? `/${currentMainImg[0]}`
+                      ? currentMainImg[0]
                       : "/1732951772668.jpg"
                   }
                   alt={product.Productname}
