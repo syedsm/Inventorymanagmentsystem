@@ -278,8 +278,8 @@ const createOrder = async (req, res) => {
           brand_name: 'Checkout',
           shipping_preference: 'NO_SHIPPING',
           user_action: 'PAY_NOW',
-          return_url: 'https://inventorymanagmentsystembackend.onrender.com/success',
-          cancel_url: 'https://inventorymanagmentsystembackend.onrender.com/failed',
+          return_url: 'https://stockmanagementapp.vercel.app/success',
+          cancel_url: 'https://stockmanagementapp.vercel.app/failed',
         },
       },
       {
