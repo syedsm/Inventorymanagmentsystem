@@ -383,7 +383,7 @@ function Editproduct() {
                 >
                   {/* Image Preview */}
                   <img
-                    src={`/${image}`}
+                    src={image}
                     alt={`Preview ${index + 1}`}
                     className="preview-image"
                     style={{
