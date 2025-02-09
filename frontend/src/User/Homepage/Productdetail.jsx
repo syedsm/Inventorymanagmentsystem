@@ -107,7 +107,7 @@ function ProductDetail() {
                     product.Images.map((img, index) => (
                       <img
                         key={index}
-                        src={`/${img}`}
+                        src={img}
                         alt={`Additional ${index + 1}`}
                         className="img-thumbnail"
                         onClick={() => setCurrentMainImg([img])}
